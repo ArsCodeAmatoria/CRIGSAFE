@@ -215,7 +215,7 @@ const certifications = [
   {
     title: "Fulford Cranes",
     description: "Industry-leading crane operation training and certification programs",
-    href: "https://bigfootcrane.com/bigfoot-academy/",
+    href: "https://fulford.ca/",
   },
   {
     title: "Bigfoot Crane",
