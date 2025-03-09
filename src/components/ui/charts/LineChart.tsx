@@ -91,6 +91,19 @@ const LineChart: React.FC<LineChartProps> = ({
         displayColors: true
       }
     },
+    elements: {
+      line: {
+        tension: 0.4,
+        borderWidth: 2,
+      },
+      point: {
+        radius: 4,
+        hoverRadius: 6,
+        backgroundColor: 'currentColor',
+        borderWidth: 1,
+        borderColor: 'white',
+      }
+    },
     scales: {
       x: {
         grid: {
@@ -106,7 +119,9 @@ const LineChart: React.FC<LineChartProps> = ({
         },
         ticks: {
           color: 'white'
-        }
+        },
+        min: 0,
+        suggestedMax: 100
       }
     }
   };

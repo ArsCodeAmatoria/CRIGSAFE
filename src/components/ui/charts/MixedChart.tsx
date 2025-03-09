@@ -91,6 +91,21 @@ const MixedChart: React.FC<MixedChartProps> = ({
         displayColors: true
       }
     },
+    elements: {
+      line: {
+        tension: 0.1,
+        borderWidth: 2,
+      },
+      point: {
+        radius: 4,
+        backgroundColor: 'currentColor',
+        borderWidth: 1,
+        borderColor: 'white',
+      },
+      bar: {
+        borderWidth: 1,
+      }
+    },
     scales: {
       x: {
         grid: {
@@ -109,7 +124,8 @@ const MixedChart: React.FC<MixedChartProps> = ({
         },
         ticks: {
           color: 'white'
-        }
+        },
+        min: 0
       },
       roi: {
         type: 'linear' as const,
@@ -120,7 +136,8 @@ const MixedChart: React.FC<MixedChartProps> = ({
         },
         ticks: {
           color: '#9966ff'
-        }
+        },
+        min: 0
       }
     }
   };

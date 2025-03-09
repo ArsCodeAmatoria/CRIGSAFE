@@ -32,6 +32,11 @@ export const efficiencyData = {
       backgroundColor: 'rgba(255, 153, 51, 0.1)',
       tension: 0.4,
       fill: true,
+      pointBackgroundColor: '#ff9933',
+      pointRadius: 4,
+      pointHoverRadius: 6,
+      pointBorderColor: 'white',
+      pointBorderWidth: 1,
     },
     {
       label: 'After Training',
@@ -40,6 +45,11 @@ export const efficiencyData = {
       backgroundColor: 'rgba(83, 192, 63, 0.1)',
       tension: 0.4,
       fill: true,
+      pointBackgroundColor: '#53C03F',
+      pointRadius: 4,
+      pointHoverRadius: 6,
+      pointBorderColor: 'white',
+      pointBorderWidth: 1,
     }
   ],
 };
@@ -75,6 +85,12 @@ export const financialImpactData = {
       borderWidth: 2,
       order: 0,
       yAxisID: 'roi',
+      tension: 0.1,
+      pointRadius: 6,
+      pointBackgroundColor: '#9966ff',
+      pointBorderColor: 'white',
+      pointBorderWidth: 2,
+      pointHoverRadius: 8,
     }
   ],
 };
