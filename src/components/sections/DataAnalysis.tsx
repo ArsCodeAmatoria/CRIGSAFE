@@ -29,8 +29,7 @@ import {
   BarChart2, 
   CheckCircle2, 
   PieChart as PieChartIcon, 
-  ChevronRight,
-  FileText
+  ChevronRight
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
@@ -91,10 +90,6 @@ const DataAnalysis = () => {
                   <KeyStat value="85%" label="Reduction in reportable incidents" />
                   <KeyStat value="76%" label="Decrease in near misses" />
                 </div>
-                <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                  <FileText size={12} className="mr-1" />
-                  <span>Source: WorkSafeBC Crane Incident Analysis 2021-2023</span>
-                </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
                 <Button variant="link" className="p-0 text-primary hover:text-primary/90">
@@ -133,10 +128,6 @@ const DataAnalysis = () => {
                   <KeyStat value="32%" label="Increase in operational efficiency" />
                   <KeyStat value="28%" label="Faster project completion times" />
                 </div>
-                <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                  <FileText size={12} className="mr-1" />
-                  <span>Source: Industry Crane Operator Productivity Analysis 2022</span>
-                </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
                 <Button variant="link" className="p-0 text-primary hover:text-primary/90">
@@ -174,10 +165,6 @@ const DataAnalysis = () => {
                 <div className="mt-4 space-y-2">
                   <KeyStat value="740%" label="5-year return on investment" />
                   <KeyStat value="$735K" label="Net savings over 5 years" />
-                </div>
-                <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                  <FileText size={12} className="mr-1" />
-                  <span>Source: Construction Industry Training Board Economic Analysis 2023</span>
                 </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
@@ -218,10 +205,6 @@ const DataAnalysis = () => {
                   <KeyStat value="83%" label="Decrease in project delays" />
                   <KeyStat value="30%" label="Improvement in customer satisfaction" />
                 </div>
-                <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                  <FileText size={12} className="mr-1" />
-                  <span>Source: Fulford Certification Quality Metrics Report 2022-2023</span>
-                </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
                 <Button variant="link" className="p-0 text-primary hover:text-primary/90">
@@ -259,10 +242,6 @@ const DataAnalysis = () => {
                 <div className="mt-4 space-y-2">
                   <KeyStat value="69%" label="Reduction in operator errors" />
                   <KeyStat value="67%" label="Reduction in rigging-related incidents" />
-                </div>
-                <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                  <FileText size={12} className="mr-1" />
-                  <span>Source: Canadian Centre for Occupational Health & Safety Database 2023</span>
                 </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
@@ -302,10 +281,6 @@ const DataAnalysis = () => {
                   <KeyStat value="183%" label="Performance improvement with advanced certification" />
                   <KeyStat value="94%" label="Regulatory compliance achievement" />
                 </div>
-                <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                  <FileText size={12} className="mr-1" />
-                  <span>Source: Red Seal Certification Performance Analysis 2023</span>
-                </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
                 <Button variant="link" className="p-0 text-primary hover:text-primary/90">
@@ -315,43 +290,6 @@ const DataAnalysis = () => {
               </CardFooter>
             </Card>
           </motion.div>
-        </div>
-
-        <div className="mt-16 text-center">
-          <div className="bg-card shadow-lg border border-gray-800 rounded-xl p-6 max-w-3xl mx-auto">
-            <h3 className="text-xl font-bold mb-3 text-white">Data Methodology & Sources</h3>
-            <p className="text-gray-400 text-sm mb-4">
-              The data presented in these visualizations is compiled from multiple industry sources, including 
-              research studies, certification program outcomes, and workplace safety records. All statistics 
-              have been normalized and aggregated across industries where crane operations are prevalent.
-            </p>
-            <ul className="text-left text-sm text-gray-400 space-y-2">
-              <li className="flex items-start">
-                <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>WorkSafeBC Crane Incident Analysis 2021-2023</span>
-              </li>
-              <li className="flex items-start">
-                <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>Industry Crane Operator Productivity Analysis 2022</span>
-              </li>
-              <li className="flex items-start">
-                <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>Construction Industry Training Board Economic Analysis 2023</span>
-              </li>
-              <li className="flex items-start">
-                <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>Fulford Certification Quality Metrics Report 2022-2023</span>
-              </li>
-              <li className="flex items-start">
-                <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>Canadian Centre for Occupational Health & Safety Database 2023</span>
-              </li>
-              <li className="flex items-start">
-                <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>Red Seal Certification Performance Analysis 2023</span>
-              </li>
-            </ul>
-          </div>
         </div>
       </div>
     </section>

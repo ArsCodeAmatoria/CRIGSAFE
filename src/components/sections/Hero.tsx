@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart2, Shield, DollarSign, CheckCircle, TrendingUp, FileText } from 'lucide-react';
+import { ArrowRight, BarChart2, Shield, DollarSign, CheckCircle, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Hero = () => {
@@ -74,10 +74,6 @@ const Hero = () => {
                       <div>
                         <h3 className="text-primary font-bold text-xl">85%</h3>
                         <p className="text-white text-sm">Reduction in workplace incidents</p>
-                        <div className="flex items-center mt-2 text-xs text-gray-500">
-                          <FileText size={10} className="mr-1" />
-                          <span>WorkSafeBC, 2023</span>
-                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -98,10 +94,6 @@ const Hero = () => {
                       <div>
                         <h3 className="text-primary font-bold text-xl">$246K</h3>
                         <p className="text-white text-sm">Average annual savings</p>
-                        <div className="flex items-center mt-2 text-xs text-gray-500">
-                          <FileText size={10} className="mr-1" />
-                          <span>CITB Analysis, 2023</span>
-                        </div>
                       </div>
                     </div>
                   </CardContent>
@@ -149,11 +141,6 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
-              
-              <div className="mt-3 pt-2 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                <FileText size={10} className="mr-1" />
-                <span>Source: Industry Training Outcomes Analysis, 2022-2023</span>
-              </div>
             </motion.div>
             
             {/* Additional Stats Cards */}
@@ -182,11 +169,6 @@ const Hero = () => {
                     <p className="text-primary font-bold">98%</p>
                   </div>
                 </div>
-              </div>
-              
-              <div className="mt-3 pt-2 border-t border-gray-800 flex items-center text-xs text-gray-500">
-                <FileText size={10} className="mr-1" />
-                <span>Source: Red Seal Certification Data, 2023</span>
               </div>
             </motion.div>
           </motion.div>
