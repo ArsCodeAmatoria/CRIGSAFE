@@ -63,7 +63,9 @@ const Navbar = () => {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-transparent text-white hover:bg-gray-800">
-                  Certifications
+                  <a href="https://bigfootcrane.com/bigfoot-academy/" className="flex items-center" target="_blank" rel="noopener noreferrer">
+                    Certifications
+                  </a>
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4">
@@ -72,6 +74,8 @@ const Navbar = () => {
                         <NavigationMenuLink asChild>
                           <a
                             href={cert.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-gray-800 hover:text-white focus:bg-gray-800 focus:text-white"
                           >
                             <div className="text-sm font-medium leading-none text-white">{cert.title}</div>
@@ -147,6 +151,8 @@ const Navbar = () => {
               <a
                 key={cert.title}
                 href={cert.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="block px-3 py-2 text-sm text-gray-300 rounded-md hover:bg-gray-800 hover:text-white"
               >
                 {cert.title}
@@ -209,22 +215,22 @@ const certifications = [
   {
     title: "Fulford Cranes",
     description: "Industry-leading crane operation training and certification programs",
-    href: "#fulford",
+    href: "https://bigfootcrane.com/bigfoot-academy/",
   },
   {
     title: "Bigfoot Crane",
     description: "Comprehensive training solutions for crane operators and technicians",
-    href: "#bigfoot",
+    href: "https://bigfootcrane.com/bigfoot-academy/",
   },
   {
     title: "Canadian Red Seal",
     description: "Nationally recognized certification for skilled trade workers",
-    href: "#redseal",
+    href: "https://bigfootcrane.com/bigfoot-academy/",
   },
   {
     title: "OSHA US",
     description: "Regulatory standards and certifications for workplace safety",
-    href: "#osha",
+    href: "https://bigfootcrane.com/bigfoot-academy/",
   },
 ];
 
