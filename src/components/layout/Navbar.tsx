@@ -227,6 +227,11 @@ const certifications = [
     description: "Nationally recognized certification for skilled trade workers",
     href: "https://www.red-seal.ca/eng/welcome.shtml",
   },
+  {
+    title: "BC Crane Safety",
+    description: "Provincial authority responsible for crane operator certification in British Columbia",
+    href: "https://bccranesafety.ca/",
+  },
 ];
 
 export default Navbar; 
