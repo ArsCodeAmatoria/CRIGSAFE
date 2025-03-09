@@ -1,25 +1,38 @@
 "use client";
-import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ChartData,
+import React, { useEffect, useState } from 'react';
+import type { 
+  ChartData, 
   ChartOptions
 } from 'chart.js';
-import { Bar } from 'react-chartjs-2';
+import dynamic from 'next/dynamic';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
+// Dynamically import Chart.js components with no SSR
+const BarComponent = dynamic(
+  () => import('react-chartjs-2').then(mod => {
+    // Register Chart.js components on client
+    import('chart.js').then(ChartJS => {
+      const { 
+        Chart,
+        CategoryScale, 
+        LinearScale, 
+        BarElement, 
+        Title, 
+        Tooltip, 
+        Legend 
+      } = ChartJS;
+      
+      Chart.register(
+        CategoryScale, 
+        LinearScale, 
+        BarElement, 
+        Title, 
+        Tooltip, 
+        Legend
+      );
+    });
+    return mod.Bar;
+  }),
+  { ssr: false }
 );
 
 export interface BarChartProps {
@@ -98,7 +111,7 @@ const BarChart: React.FC<BarChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Bar data={data} options={mergedOptions} />
+      <BarComponent data={data} options={mergedOptions} />
     </div>
   );
 };

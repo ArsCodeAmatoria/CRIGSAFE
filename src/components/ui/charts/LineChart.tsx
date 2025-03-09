@@ -1,29 +1,42 @@
 "use client";
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler,
-  ChartData,
+import type { 
+  ChartData, 
   ChartOptions
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import dynamic from 'next/dynamic';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Legend,
-  Filler
+// Dynamically import Chart.js components with no SSR
+const LineComponent = dynamic(
+  () => import('react-chartjs-2').then(mod => {
+    // Register Chart.js components on client
+    import('chart.js').then(ChartJS => {
+      const { 
+        Chart,
+        CategoryScale, 
+        LinearScale, 
+        PointElement, 
+        LineElement, 
+        Title, 
+        Tooltip, 
+        Legend,
+        Filler 
+      } = ChartJS;
+      
+      Chart.register(
+        CategoryScale, 
+        LinearScale, 
+        PointElement, 
+        LineElement, 
+        Title, 
+        Tooltip, 
+        Legend,
+        Filler
+      );
+    });
+    return mod.Line;
+  }),
+  { ssr: false }
 );
 
 export interface LineChartProps {
@@ -102,7 +115,7 @@ const LineChart: React.FC<LineChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Line data={data} options={mergedOptions} />
+      <LineComponent data={data} options={mergedOptions} />
     </div>
   );
 };

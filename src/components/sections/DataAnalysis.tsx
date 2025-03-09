@@ -13,6 +13,7 @@ import LineChart from '@/components/ui/charts/LineChart';
 import PieChart from '@/components/ui/charts/PieChart';
 import RadarChart from '@/components/ui/charts/RadarChart';
 import MixedChart from '@/components/ui/charts/MixedChart';
+import ClientOnly from '@/components/ui/ClientOnly';
 import { 
   safetyMetricsData, 
   efficiencyData, 
@@ -81,10 +82,12 @@ const DataAnalysis = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <BarChart 
-                  data={safetyMetricsData} 
-                  height={280} 
-                />
+                <ClientOnly>
+                  <BarChart 
+                    data={safetyMetricsData} 
+                    height={280} 
+                  />
+                </ClientOnly>
                 <div className="mt-4 space-y-2">
                   <KeyStat value="85%" label="Reduction in reportable incidents" />
                   <KeyStat value="76%" label="Decrease in near misses" />
@@ -119,10 +122,12 @@ const DataAnalysis = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <LineChart 
-                  data={efficiencyData} 
-                  height={280} 
-                />
+                <ClientOnly>
+                  <LineChart 
+                    data={efficiencyData} 
+                    height={280} 
+                  />
+                </ClientOnly>
                 <div className="mt-4 space-y-2">
                   <KeyStat value="32%" label="Increase in operational efficiency" />
                   <KeyStat value="28%" label="Faster project completion times" />
@@ -157,10 +162,12 @@ const DataAnalysis = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <MixedChart 
-                  data={financialImpactData} 
-                  height={280} 
-                />
+                <ClientOnly>
+                  <MixedChart 
+                    data={financialImpactData} 
+                    height={280} 
+                  />
+                </ClientOnly>
                 <div className="mt-4 space-y-2">
                   <KeyStat value="740%" label="5-year return on investment" />
                   <KeyStat value="$735K" label="Net savings over 5 years" />
@@ -195,10 +202,12 @@ const DataAnalysis = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <BarChart 
-                  data={qualityMetricsData} 
-                  height={280} 
-                />
+                <ClientOnly>
+                  <BarChart 
+                    data={qualityMetricsData} 
+                    height={280} 
+                  />
+                </ClientOnly>
                 <div className="mt-4 space-y-2">
                   <KeyStat value="76%" label="Reduction in equipment downtime" />
                   <KeyStat value="83%" label="Decrease in project delays" />
@@ -234,10 +243,12 @@ const DataAnalysis = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <PieChart 
-                  data={incidentTypeData} 
-                  height={280} 
-                />
+                <ClientOnly>
+                  <PieChart 
+                    data={incidentTypeData} 
+                    height={280} 
+                  />
+                </ClientOnly>
                 <div className="mt-4 space-y-2">
                   <KeyStat value="69%" label="Reduction in operator errors" />
                   <KeyStat value="67%" label="Reduction in rigging-related incidents" />
@@ -272,10 +283,12 @@ const DataAnalysis = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <RadarChart 
-                  data={certificationComparisonData} 
-                  height={280} 
-                />
+                <ClientOnly>
+                  <RadarChart 
+                    data={certificationComparisonData} 
+                    height={280} 
+                  />
+                </ClientOnly>
                 <div className="mt-4 space-y-2">
                   <KeyStat value="183%" label="Performance improvement with advanced certification" />
                   <KeyStat value="94%" label="Regulatory compliance achievement" />

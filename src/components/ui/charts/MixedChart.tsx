@@ -1,29 +1,42 @@
 "use client";
 import React from 'react';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-  ChartData,
+import type { 
+  ChartData, 
   ChartOptions
 } from 'chart.js';
-import { Chart } from 'react-chartjs-2';
+import dynamic from 'next/dynamic';
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend
+// Dynamically import Chart.js components with no SSR
+const ChartComponent = dynamic(
+  () => import('react-chartjs-2').then(mod => {
+    // Register Chart.js components on client
+    import('chart.js').then(ChartJS => {
+      const { 
+        Chart,
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend
+      } = ChartJS;
+      
+      Chart.register(
+        CategoryScale,
+        LinearScale,
+        PointElement,
+        LineElement,
+        BarElement,
+        Title,
+        Tooltip,
+        Legend
+      );
+    });
+    return mod.Chart;
+  }),
+  { ssr: false }
 );
 
 export interface MixedChartProps {
@@ -116,7 +129,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Chart type='bar' data={data as ChartData<'bar'>} options={mergedOptions} />
+      <ChartComponent type='bar' data={data as ChartData<'bar'>} options={mergedOptions} />
     </div>
   );
 };

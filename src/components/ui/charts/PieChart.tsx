@@ -1,19 +1,32 @@
 "use client";
 import React from 'react';
-import {
-  Chart as ChartJS,
-  ArcElement,
-  Tooltip,
-  Legend,
-  ChartData,
+import type { 
+  ChartData, 
   ChartOptions
 } from 'chart.js';
-import { Pie } from 'react-chartjs-2';
+import dynamic from 'next/dynamic';
 
-ChartJS.register(
-  ArcElement,
-  Tooltip,
-  Legend
+// Dynamically import Chart.js components with no SSR
+const PieComponent = dynamic(
+  () => import('react-chartjs-2').then(mod => {
+    // Register Chart.js components on client
+    import('chart.js').then(ChartJS => {
+      const { 
+        Chart,
+        ArcElement, 
+        Tooltip, 
+        Legend
+      } = ChartJS;
+      
+      Chart.register(
+        ArcElement, 
+        Tooltip, 
+        Legend
+      );
+    });
+    return mod.Pie;
+  }),
+  { ssr: false }
 );
 
 export interface PieChartProps {
@@ -79,7 +92,7 @@ const PieChart: React.FC<PieChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Pie data={data} options={mergedOptions} />
+      <PieComponent data={data} options={mergedOptions} />
     </div>
   );
 };

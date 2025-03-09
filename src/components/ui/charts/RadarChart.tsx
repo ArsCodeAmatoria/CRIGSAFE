@@ -1,31 +1,46 @@
 "use client";
 import React from 'react';
-import {
-  Chart as ChartJS,
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
+import type { 
+  ChartData, 
+  ChartOptions
 } from 'chart.js';
-import { Radar } from 'react-chartjs-2';
+import dynamic from 'next/dynamic';
 
-ChartJS.register(
-  RadialLinearScale,
-  PointElement,
-  LineElement,
-  Filler,
-  Tooltip,
-  Legend
+// Dynamically import Chart.js components with no SSR
+const RadarComponent = dynamic(
+  () => import('react-chartjs-2').then(mod => {
+    // Register Chart.js components on client
+    import('chart.js').then(ChartJS => {
+      const { 
+        Chart,
+        RadialLinearScale,
+        PointElement,
+        LineElement,
+        Filler,
+        Tooltip,
+        Legend
+      } = ChartJS;
+      
+      Chart.register(
+        RadialLinearScale,
+        PointElement,
+        LineElement,
+        Filler,
+        Tooltip,
+        Legend
+      );
+    });
+    return mod.Radar;
+  }),
+  { ssr: false }
 );
 
 export interface RadarChartProps {
-  data: any;
+  data: ChartData<'radar'>;
   title?: string;
   height?: number;
   className?: string;
-  options?: any;
+  options?: ChartOptions<'radar'>;
 }
 
 const RadarChart: React.FC<RadarChartProps> = ({ 
@@ -35,7 +50,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
   className,
   options = {}
 }) => {
-  const defaultOptions = {
+  const defaultOptions: ChartOptions<'radar'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -101,7 +116,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Radar data={data} options={mergedOptions} />
+      <RadarComponent data={data} options={mergedOptions} />
     </div>
   );
 };

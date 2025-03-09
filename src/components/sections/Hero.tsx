@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Shield, DollarSign, CheckCircle, TrendingUp } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import ClientOnly from '@/components/ui/ClientOnly';
 
 const Hero = () => {
   return (
@@ -119,28 +120,30 @@ const Hero = () => {
               </div>
               
               {/* Simple Chart Visualization */}
-              <div className="flex items-end h-24 gap-4 mt-2 mb-1 pl-1">
-                <div className="relative flex flex-col items-center">
-                  <div className="bg-gray-600 w-10 h-[90%] rounded-t-sm"></div>
-                  <span className="text-xs text-gray-400 mt-1">Before</span>
-                </div>
-                <div className="relative flex flex-col items-center">
-                  <div className="bg-primary w-10 h-[25%] rounded-t-sm"></div>
-                  <span className="text-xs text-gray-400 mt-1">After</span>
-                </div>
-                <div className="flex-grow flex items-center ml-2">
-                  <div className="flex flex-col text-sm">
-                    <div className="flex items-center gap-2 mb-2">
-                      <TrendingUp className="text-primary" size={16} />
-                      <span className="text-white">32% higher efficiency</span>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <CheckCircle className="text-primary" size={16} />
-                      <span className="text-white">4x better quality standards</span>
+              <ClientOnly>
+                <div className="flex items-end h-24 gap-4 mt-2 mb-1 pl-1">
+                  <div className="relative flex flex-col items-center">
+                    <div className="bg-gray-600 w-10 h-[90%] rounded-t-sm"></div>
+                    <span className="text-xs text-gray-400 mt-1">Before</span>
+                  </div>
+                  <div className="relative flex flex-col items-center">
+                    <div className="bg-primary w-10 h-[25%] rounded-t-sm"></div>
+                    <span className="text-xs text-gray-400 mt-1">After</span>
+                  </div>
+                  <div className="flex-grow flex items-center ml-2">
+                    <div className="flex flex-col text-sm">
+                      <div className="flex items-center gap-2 mb-2">
+                        <TrendingUp className="text-primary" size={16} />
+                        <span className="text-white">32% higher efficiency</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <CheckCircle className="text-primary" size={16} />
+                        <span className="text-white">4x better quality standards</span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
+              </ClientOnly>
             </motion.div>
             
             {/* Additional Stats Cards */}
