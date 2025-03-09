@@ -4,7 +4,9 @@ import {
   Chart as ChartJS,
   ArcElement,
   Tooltip,
-  Legend
+  Legend,
+  ChartData,
+  ChartOptions
 } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 
@@ -15,11 +17,11 @@ ChartJS.register(
 );
 
 export interface PieChartProps {
-  data: any;
+  data: ChartData<'pie'>;
   title?: string;
   height?: number;
   className?: string;
-  options?: any;
+  options?: ChartOptions<'pie'>;
 }
 
 const PieChart: React.FC<PieChartProps> = ({ 
@@ -29,7 +31,7 @@ const PieChart: React.FC<PieChartProps> = ({
   className,
   options = {}
 }) => {
-  const defaultOptions = {
+  const defaultOptions: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {

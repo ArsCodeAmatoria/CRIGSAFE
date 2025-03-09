@@ -10,6 +10,8 @@ import {
   Tooltip,
   Legend,
   Filler,
+  ChartData,
+  ChartOptions
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
 
@@ -25,11 +27,11 @@ ChartJS.register(
 );
 
 export interface LineChartProps {
-  data: any;
+  data: ChartData<'line'>;
   title?: string;
   height?: number;
   className?: string;
-  options?: any;
+  options?: ChartOptions<'line'>;
 }
 
 const LineChart: React.FC<LineChartProps> = ({ 
@@ -39,7 +41,7 @@ const LineChart: React.FC<LineChartProps> = ({
   className,
   options = {}
 }) => {
-  const defaultOptions = {
+  const defaultOptions: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {

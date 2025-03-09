@@ -10,6 +10,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartData,
+  ChartOptions
 } from 'chart.js';
 import { Chart } from 'react-chartjs-2';
 
@@ -25,11 +27,11 @@ ChartJS.register(
 );
 
 export interface MixedChartProps {
-  data: any;
+  data: ChartData<'bar' | 'line'>;
   title?: string;
   height?: number;
   className?: string;
-  options?: any;
+  options?: ChartOptions<'bar'>;
 }
 
 const MixedChart: React.FC<MixedChartProps> = ({ 
@@ -39,7 +41,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
   className,
   options = {}
 }) => {
-  const defaultOptions = {
+  const defaultOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {
@@ -114,7 +116,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <Chart type='bar' data={data} options={mergedOptions} />
+      <Chart type='bar' data={data as ChartData<'bar'>} options={mergedOptions} />
     </div>
   );
 };

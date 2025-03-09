@@ -8,6 +8,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  ChartData,
+  ChartOptions
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -21,11 +23,11 @@ ChartJS.register(
 );
 
 export interface BarChartProps {
-  data: any;
+  data: ChartData<'bar'>;
   title?: string;
   height?: number;
   className?: string;
-  options?: any;
+  options?: ChartOptions<'bar'>;
 }
 
 const BarChart: React.FC<BarChartProps> = ({ 
@@ -35,7 +37,7 @@ const BarChart: React.FC<BarChartProps> = ({
   className,
   options = {}
 }) => {
-  const defaultOptions = {
+  const defaultOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
     plugins: {

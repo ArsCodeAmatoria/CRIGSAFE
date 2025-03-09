@@ -1,7 +1,7 @@
 "use client";
 import React from 'react';
 import Link from 'next/link';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { 
   NavigationMenu, 
   NavigationMenuContent, 
@@ -11,7 +11,6 @@ import {
   NavigationMenuTrigger 
 } from "@/components/ui/navigation-menu";
 import { Button } from '@/components/ui/button';
-import { cn } from '@/lib/utils';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {

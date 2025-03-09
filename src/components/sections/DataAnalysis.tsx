@@ -19,8 +19,7 @@ import {
   financialImpactData, 
   incidentTypeData,
   qualityMetricsData,
-  certificationComparisonData,
-  costBreakdownData
+  certificationComparisonData
 } from '@/lib/data/charts-data';
 import { 
   Landmark, 
