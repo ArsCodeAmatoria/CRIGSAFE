@@ -135,7 +135,7 @@ const DataAnalysis = () => {
                 </div>
                 <div className="mt-3 pt-3 border-t border-gray-800 flex items-center text-xs text-gray-500">
                   <FileText size={12} className="mr-1" />
-                  <span>Source: Bigfoot Crane Academy Productivity Study 2022</span>
+                  <span>Source: Industry Crane Operator Productivity Analysis 2022</span>
                 </div>
               </CardContent>
               <CardFooter className="border-t border-gray-800 pt-4">
@@ -332,7 +332,7 @@ const DataAnalysis = () => {
               </li>
               <li className="flex items-start">
                 <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />
-                <span>Bigfoot Crane Academy Productivity Study 2022</span>
+                <span>Industry Crane Operator Productivity Analysis 2022</span>
               </li>
               <li className="flex items-start">
                 <FileText size={14} className="text-primary mr-2 mt-0.5 flex-shrink-0" />

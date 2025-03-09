@@ -152,7 +152,7 @@ const Hero = () => {
               
               <div className="mt-3 pt-2 border-t border-gray-800 flex items-center text-xs text-gray-500">
                 <FileText size={10} className="mr-1" />
-                <span>Source: Bigfoot Academy Training Outcomes Analysis, 2022-2023</span>
+                <span>Source: Industry Training Outcomes Analysis, 2022-2023</span>
               </div>
             </motion.div>
             
