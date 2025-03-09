@@ -227,11 +227,6 @@ const certifications = [
     description: "Nationally recognized certification for skilled trade workers",
     href: "https://bigfootcrane.com/bigfoot-academy/",
   },
-  {
-    title: "OSHA US",
-    description: "Regulatory standards and certifications for workplace safety",
-    href: "https://bigfootcrane.com/bigfoot-academy/",
-  },
 ];
 
 export default Navbar; 
