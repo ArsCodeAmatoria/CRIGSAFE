@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Twitter, Instagram, Linkedin, Youtube, Mail, Phone, MapPin, PawPrint } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 const Footer = () => {
@@ -57,15 +57,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start">
                 <MapPin className="text-primary mr-2 mt-1 flex-shrink-0" size={18} />
-                <span className="text-gray-400">123 Crane Way, Vancouver, BC V6G 1Z9, Canada</span>
+                <span className="text-gray-400">2170 Carpenter Street, Abbotsford, BC V2T 6B4, Canada</span>
               </li>
               <li className="flex items-center">
                 <Phone className="text-primary mr-2 flex-shrink-0" size={18} />
-                <span className="text-gray-400">+1 (604) 555-0123</span>
+                <span className="text-gray-400">1-877-852-2192 / (604) 854-3218</span>
+              </li>
+              <li className="flex items-start">
+                <Mail className="text-primary mr-2 mt-1 flex-shrink-0" size={18} />
+                <span className="text-gray-400">info@bigfootcrane.com</span>
               </li>
               <li className="flex items-center">
-                <Mail className="text-primary mr-2 flex-shrink-0" size={18} />
-                <span className="text-gray-400">info@crigsafe.com</span>
+                <Phone className="text-primary mr-2 flex-shrink-0" size={18} />
+                <span className="text-gray-400">Fax: (604) 854-5716</span>
               </li>
             </ul>
           </div>
@@ -74,9 +78,17 @@ const Footer = () => {
         <Separator className="my-8 bg-gray-800" />
 
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-500 text-sm mb-4 md:mb-0">
-            © {new Date().getFullYear()} CRIGSAFE. All rights reserved.
-          </p>
+          <div className="flex items-center mb-4 md:mb-0">
+            <p className="text-gray-500 text-sm mr-4">
+              © {new Date().getFullYear()} CRIGSAFE. All rights reserved.
+            </p>
+            <div className="flex items-center text-primary">
+              <span className="text-gray-500 text-sm flex items-center">
+                Built by Bigfoot Crane
+                <PawPrint className="ml-2" size={16} />
+              </span>
+            </div>
+          </div>
           <div className="flex space-x-4">
             <Link href="/privacy" className="text-gray-500 text-sm hover:text-primary">
               Privacy Policy

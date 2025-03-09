@@ -82,22 +82,23 @@ const Hero = () => {
               </div>
             </div>
             
-            {/* Floating stats card */}
+            {/* Floating stats card - TOP */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -top-4 -right-4 md:top-12 md:-right-12 bg-black/90 backdrop-blur p-4 rounded-xl border border-gray-800 shadow-lg z-10 max-w-[240px]"
+              className="absolute -top-4 -right-4 md:top-8 md:-right-8 lg:-right-12 bg-black/90 backdrop-blur p-4 rounded-xl border border-gray-800 shadow-lg z-10 max-w-[240px]"
             >
               <h3 className="text-primary font-bold text-xl">85%</h3>
               <p className="text-white text-sm">Reduction in workplace incidents after comprehensive training</p>
             </motion.div>
             
+            {/* Floating stats card - BOTTOM */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute -bottom-4 -left-4 md:bottom-12 md:-left-12 bg-black/90 backdrop-blur p-4 rounded-xl border border-gray-800 shadow-lg z-10 max-w-[240px]"
+              className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 lg:-left-12 bg-black/90 backdrop-blur p-4 rounded-xl border border-gray-800 shadow-lg z-10 max-w-[240px]"
             >
               <h3 className="text-primary font-bold text-xl">$246K</h3>
               <p className="text-white text-sm">Average annual savings from reduced accidents and improved productivity</p>

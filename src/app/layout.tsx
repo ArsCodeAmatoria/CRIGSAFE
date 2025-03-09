@@ -15,6 +15,10 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "CRIGSafe - Crane Training & Safety Analysis",
   description: "Data analysis showing how training improves safety, efficiency, quality and saves money in crane operations",
+  icons: {
+    icon: '/paw-print.svg',
+    apple: '/paw-print.svg',
+  },
 };
 
 export default function RootLayout({
@@ -24,6 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
+      <head>
+        <link rel="icon" href="/paw-print.svg" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black text-white`}
       >
