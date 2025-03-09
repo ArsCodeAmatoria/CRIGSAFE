@@ -1,6 +1,5 @@
 "use client";
 import React from 'react';
-import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
 import { ArrowRight, BarChart2, Shield, DollarSign, CheckCircle, TrendingUp } from 'lucide-react';
@@ -52,7 +51,7 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Image and Data Visualization */}
+          {/* Data Visualization */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -60,13 +59,13 @@ const Hero = () => {
             className="flex flex-col gap-6"
           >
             {/* Key Stats Cards - Top */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
-                <Card className="bg-black/80 border border-gray-800 overflow-hidden">
+                <Card className="bg-black/80 border border-gray-800 overflow-hidden h-full">
                   <CardContent className="p-4">
                     <div className="flex items-start gap-3">
                       <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-black flex-shrink-0">
@@ -86,7 +85,7 @@ const Hero = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.4 }}
               >
-                <Card className="bg-black/80 border border-gray-800 overflow-hidden">
+                <Card className="bg-black/80 border border-gray-800 overflow-hidden h-full">
                   <CardContent className="p-4">
                     <div className="flex items-start gap-3">
                       <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-black flex-shrink-0">
@@ -101,24 +100,6 @@ const Hero = () => {
                 </Card>
               </motion.div>
             </div>
-            
-            {/* Main Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="relative rounded-xl overflow-hidden shadow-xl h-[280px] md:h-[320px]"
-            >
-              <Image
-                src="/crane-operator.jpg"
-                alt="Crane operator with safety equipment"
-                fill
-                style={{ objectFit: 'cover' }}
-                className="rounded-xl"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-xl" />
-            </motion.div>
             
             {/* Data Visualization Chart */}
             <motion.div
@@ -157,6 +138,35 @@ const Hero = () => {
                       <CheckCircle className="text-primary" size={16} />
                       <span className="text-white">4x better quality standards</span>
                     </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Additional Stats Cards */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.6 }}
+              className="bg-black/80 backdrop-blur border border-gray-800 rounded-xl p-5 shadow-lg"
+            >
+              <div className="grid grid-cols-2 gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 bg-primary/20 rounded-full flex items-center justify-center text-primary flex-shrink-0">
+                    <CheckCircle size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium text-sm">Quality</h4>
+                    <p className="text-primary font-bold">+40%</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="h-8 w-8 bg-primary/20 rounded-full flex items-center justify-center text-primary flex-shrink-0">
+                    <Shield size={16} />
+                  </div>
+                  <div>
+                    <h4 className="text-white font-medium text-sm">Compliance</h4>
+                    <p className="text-primary font-bold">98%</p>
                   </div>
                 </div>
               </div>
