@@ -3,7 +3,8 @@ import React from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { ArrowRight, BarChart2, Shield, DollarSign, CheckCircle } from 'lucide-react';
+import { ArrowRight, BarChart2, Shield, DollarSign, CheckCircle, TrendingUp } from 'lucide-react';
+import { Card, CardContent } from '@/components/ui/card';
 
 const Hero = () => {
   return (
@@ -51,14 +52,63 @@ const Hero = () => {
             </div>
           </motion.div>
           
-          {/* Image Content */}
+          {/* Image and Data Visualization */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="relative"
+            className="flex flex-col gap-6"
           >
-            <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-xl">
+            {/* Key Stats Cards - Top */}
+            <div className="grid grid-cols-2 gap-4">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <Card className="bg-black/80 border border-gray-800 overflow-hidden">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-3">
+                      <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-black flex-shrink-0">
+                        <Shield size={20} />
+                      </div>
+                      <div>
+                        <h3 className="text-primary font-bold text-xl">85%</h3>
+                        <p className="text-white text-sm">Reduction in workplace incidents</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+              
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.4 }}
+              >
+                <Card className="bg-black/80 border border-gray-800 overflow-hidden">
+                  <CardContent className="p-4">
+                    <div className="flex items-start gap-3">
+                      <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-black flex-shrink-0">
+                        <DollarSign size={20} />
+                      </div>
+                      <div>
+                        <h3 className="text-primary font-bold text-xl">$246K</h3>
+                        <p className="text-white text-sm">Average annual savings</p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            </div>
+            
+            {/* Main Image */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="relative rounded-xl overflow-hidden shadow-xl h-[280px] md:h-[320px]"
+            >
               <Image
                 src="/crane-operator.jpg"
                 alt="Crane operator with safety equipment"
@@ -67,41 +117,49 @@ const Hero = () => {
                 className="rounded-xl"
                 priority
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent rounded-xl" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent rounded-xl" />
+            </motion.div>
+            
+            {/* Data Visualization Chart */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="bg-black/80 backdrop-blur border border-gray-800 rounded-xl p-5 shadow-lg"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="h-10 w-10 bg-primary rounded-full flex items-center justify-center text-black flex-shrink-0">
+                  <BarChart2 size={20} />
+                </div>
+                <div>
+                  <h3 className="text-white font-semibold">Training Impact</h3>
+                  <p className="text-gray-400 text-sm">Certified operators see 73% fewer accidents</p>
+                </div>
+              </div>
               
-              <div className="absolute bottom-6 left-6 right-6 bg-black/80 backdrop-blur p-4 rounded-lg border border-gray-800">
-                <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 bg-primary rounded-full flex items-center justify-center text-black flex-shrink-0">
-                    <BarChart2 size={24} />
-                  </div>
-                  <div>
-                    <h3 className="text-white font-semibold">The Data Proves It</h3>
-                    <p className="text-gray-400 text-sm">Companies with certified operators see 73% fewer accidents and 32% higher efficiency rates.</p>
+              {/* Simple Chart Visualization */}
+              <div className="flex items-end h-24 gap-4 mt-2 mb-1 pl-1">
+                <div className="relative flex flex-col items-center">
+                  <div className="bg-gray-600 w-10 h-[90%] rounded-t-sm"></div>
+                  <span className="text-xs text-gray-400 mt-1">Before</span>
+                </div>
+                <div className="relative flex flex-col items-center">
+                  <div className="bg-primary w-10 h-[25%] rounded-t-sm"></div>
+                  <span className="text-xs text-gray-400 mt-1">After</span>
+                </div>
+                <div className="flex-grow flex items-center ml-2">
+                  <div className="flex flex-col text-sm">
+                    <div className="flex items-center gap-2 mb-2">
+                      <TrendingUp className="text-primary" size={16} />
+                      <span className="text-white">32% higher efficiency</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <CheckCircle className="text-primary" size={16} />
+                      <span className="text-white">4x better quality standards</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-            
-            {/* Floating stats card - TOP */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6 }}
-              className="absolute -top-4 -right-4 md:top-8 md:-right-8 lg:-right-12 bg-black/90 backdrop-blur p-4 rounded-xl border border-gray-800 shadow-lg z-10 max-w-[240px]"
-            >
-              <h3 className="text-primary font-bold text-xl">85%</h3>
-              <p className="text-white text-sm">Reduction in workplace incidents after comprehensive training</p>
-            </motion.div>
-            
-            {/* Floating stats card - BOTTOM */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8 }}
-              className="absolute -bottom-4 -left-4 md:-bottom-8 md:-left-8 lg:-left-12 bg-black/90 backdrop-blur p-4 rounded-xl border border-gray-800 shadow-lg z-10 max-w-[240px]"
-            >
-              <h3 className="text-primary font-bold text-xl">$246K</h3>
-              <p className="text-white text-sm">Average annual savings from reduced accidents and improved productivity</p>
             </motion.div>
           </motion.div>
         </div>
