@@ -54,9 +54,20 @@ const LineChart: React.FC<LineChartProps> = ({
   className,
   options = {}
 }) => {
+  // Fix: Force disable bezier curves by setting tension to 0
+  // This prevents the 'cp1x' error
+  const chartData = {
+    ...data,
+    datasets: data.datasets.map(dataset => ({
+      ...dataset,
+      tension: 0, // Set tension to 0 to use straight lines instead of curves
+    }))
+  };
+
   const defaultOptions: ChartOptions<'line'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: false, // Disable animations completely
     plugins: {
       legend: {
         position: 'top' as const,
@@ -93,7 +104,7 @@ const LineChart: React.FC<LineChartProps> = ({
     },
     elements: {
       line: {
-        tension: 0.4,
+        tension: 0, // Use straight lines instead of curves
         borderWidth: 2,
       },
       point: {
@@ -120,8 +131,8 @@ const LineChart: React.FC<LineChartProps> = ({
         ticks: {
           color: 'white'
         },
-        min: 0,
-        suggestedMax: 100
+        min: 0, // Ensure we start from 0
+        suggestedMax: 100 // Suggest max value for better visualization
       }
     }
   };
@@ -130,7 +141,7 @@ const LineChart: React.FC<LineChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <LineComponent data={data} options={mergedOptions} />
+      <LineComponent data={chartData} options={mergedOptions} />
     </div>
   );
 };

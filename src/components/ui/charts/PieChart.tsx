@@ -47,6 +47,7 @@ const PieChart: React.FC<PieChartProps> = ({
   const defaultOptions: ChartOptions<'pie'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: false,
     plugins: {
       legend: {
         position: 'right' as const,

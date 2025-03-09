@@ -54,9 +54,25 @@ const MixedChart: React.FC<MixedChartProps> = ({
   className,
   options = {}
 }) => {
+  // Fix: Force disable bezier curves by setting tension to 0 for line datasets
+  // This prevents the 'cp1x' error
+  const chartData = {
+    ...data,
+    datasets: data.datasets.map(dataset => {
+      if (dataset.type === 'line') {
+        return {
+          ...dataset,
+          tension: 0, // Set tension to 0 to use straight lines instead of curves
+        };
+      }
+      return dataset;
+    })
+  };
+
   const defaultOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: false, // Disable animations completely
     plugins: {
       legend: {
         position: 'top' as const,
@@ -93,7 +109,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
     },
     elements: {
       line: {
-        tension: 0.1,
+        tension: 0, // Use straight lines instead of curves
         borderWidth: 2,
       },
       point: {
@@ -125,7 +141,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
         ticks: {
           color: 'white'
         },
-        min: 0
+        min: 0 // Ensure we start from 0
       },
       roi: {
         type: 'linear' as const,
@@ -137,7 +153,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
         ticks: {
           color: '#9966ff'
         },
-        min: 0
+        min: 0 // Ensure we start from 0
       }
     }
   };
@@ -146,7 +162,7 @@ const MixedChart: React.FC<MixedChartProps> = ({
 
   return (
     <div className={`w-full ${className}`} style={{ height }}>
-      <ChartComponent type='bar' data={data as ChartData<'bar'>} options={mergedOptions} />
+      <ChartComponent type='bar' data={chartData as ChartData<'bar'>} options={mergedOptions} />
     </div>
   );
 };

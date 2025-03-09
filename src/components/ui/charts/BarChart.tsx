@@ -53,6 +53,7 @@ const BarChart: React.FC<BarChartProps> = ({
   const defaultOptions: ChartOptions<'bar'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: false,
     plugins: {
       legend: {
         position: 'top' as const,

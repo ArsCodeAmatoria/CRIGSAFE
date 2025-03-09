@@ -53,6 +53,7 @@ const RadarChart: React.FC<RadarChartProps> = ({
   const defaultOptions: ChartOptions<'radar'> = {
     responsive: true,
     maintainAspectRatio: false,
+    animation: false,
     plugins: {
       legend: {
         position: 'top' as const,
