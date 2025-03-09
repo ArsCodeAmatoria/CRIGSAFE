@@ -225,7 +225,7 @@ const certifications = [
   {
     title: "Canadian Red Seal",
     description: "Nationally recognized certification for skilled trade workers",
-    href: "https://bigfootcrane.com/bigfoot-academy/",
+    href: "https://www.red-seal.ca/eng/welcome.shtml",
   },
 ];
 
